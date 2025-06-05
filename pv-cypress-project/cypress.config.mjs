@@ -1,8 +1,7 @@
 import { defineConfig } from 'cypress';
 import fs from 'fs';
 
-
-function getConfigurationByFile(file: string) {
+function getConfigurationByFile(file) {
   const pathToConfigFile = `cypress.env.${file}.json`;
 
   return fs.existsSync(pathToConfigFile)
@@ -10,14 +9,13 @@ function getConfigurationByFile(file: string) {
     : {};
 }
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
-     watchForFileChanges: false,
+    watchForFileChanges: false,
     setupNodeEvents(on, config) {
       const file = config.env.configFile || 'staging';
       const customEnv = getConfigurationByFile(file);
 
-      // Sloučí custom env do Cypress.env
       config.env = { ...config.env, ...customEnv };
       return config;
     },

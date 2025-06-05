@@ -1,8 +1,40 @@
-import { faker } from '@faker-js/faker'; 
+import { faker } from '@faker-js/faker'
 
 export default new class RegistrationPage {
   visit() {
     cy.get('button[data-testid="home-registration-button"]').should('be.visible').click({ force: true })
+  }
+
+  checkLogoIsVisible() {
+    cy.get('img[data-testid="image-pv-logo"]').should('be.visible') 
+  }
+
+  checkLoginButton() {
+    cy.get('button[data-testid="home-login-button"]').should('be.visible')
+  }
+
+  checkRegistrationButton() {
+    cy.get('button[data-testid="home-registration-button"]').should('be.visible')
+  }
+  
+  clickIcoInput() {
+    cy.contains('label', 'IČO').should('be.visible').click({ force: true })
+
+  }
+  checkIcoRequiredError() {
+    cy.contains('Pole IČO je povinné').should('be.visible')
+  }
+
+  inputIncorrectIco() {
+    cy.get('input[data-testid="registration-ico-input"]').type('12345678')
+  }
+
+  clickVerifyButton() {
+    cy.contains('button','Zkontrolovat').click({ force: true })
+  }
+
+  validateIcoNotFoundError() {
+    cy.contains('IČO nenalezeno').should('be.visible')
   }
 
   clickOutsideOfTheForm() {

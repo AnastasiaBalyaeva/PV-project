@@ -1,17 +1,20 @@
 /// <reference types="cypress" />
-/// <reference types="mocha" />
 
+import LoginPage from "cypress/pages/LoginPage"
+import { defineConfig } from 'cypress'
 
-import LoginPage from "../pages/LoginPage";
 describe('login', () => {
   beforeEach(() => { 
     cy.visit(Cypress.env('baseUrl'))
+    cy.wait(2000)
   });
 
   it('Success login', () => {
-    cy.get('button[data-testid="home-login-button"]').should('be.visible').click({ force: true })
-    LoginPage.successLogin()
+    
+    LoginPage.clickHomeLoginButton()
+    cy.successlogin()
+    cy.wait(2000)
+    LoginPage.verifyNavMenu()
   })
- 
 })
 
