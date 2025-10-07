@@ -5,14 +5,14 @@ Automated end-to-end test suite for the **ProVybor** web application, developed 
 
 ---
 
-## 🧠 Project Overview
+## Project Overview
 
 This project demonstrates the use of **Cypress** and **TypeScript** for UI and functional testing of a real-world web application.  
 The goal was to design maintainable and modular automated tests that validate key user flows in the ProVybor system.
 
 ---
 
-## 🚀 Key Features & Test Coverage
+## Key Features & Test Coverage
 
 | Area | Description |
 |------|--------------|
@@ -23,7 +23,7 @@ The goal was to design maintainable and modular automated tests that validate ke
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 - **Framework:** Cypress  
 - **Language:** TypeScript  
